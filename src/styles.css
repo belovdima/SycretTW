@@ -1,4 +1,177 @@
+/* ===== ОБНУЛЕНИЕ СТИЛЕЙ (RESET) ===== */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: "Inter", sans-serif;
+}
+
+html,
 body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #e0e0e0;
+    background-color: #121212;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕЙНЕР ===== */
+#root {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* ===== ГЛАВНЫЕ ЦВЕТА ===== */
+:root {
+    --primary: #bb86fc;
+    --secondary: #03dac5;
+    --background: #121212;
+    --surface: #1e1e1e;
+    --error: #cf6679;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --border-color: #333;
+}
+
+/* ===== ЗАГОЛОВКИ ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-primary);
+    transition: color 0.3s ease-in-out;
+    font-weight: 600;
+}
+
+/* ===== КНОПКИ ===== */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    background: var(--primary);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #9b6ded;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* ===== ФОРМЫ ===== */
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    outline: none;
+    color: var(--text-primary);
+    background: var(--surface);
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 8px rgba(187, 134, 252, 0.6);
+}
+
+/* ===== КАРТОЧКИ ===== */
+.card {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.4s ease-in-out;
     text-align: center;
-    font-family: Arial, sans-serif;
+}
+
+.card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+}
+
+/* ===== ГРИД ДЛЯ СЕРТИФИКАТОВ ===== */
+.grid {
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ===== */
+.container {
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ===== ИЗОБРАЖЕНИЕ В КАРТОЧКЕ ===== */
+.card-img {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    object-fit: cover;
+}
+
+.card:hover .card-img {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* ===== ЦЕНА ===== */
+.price {
+    margin: 10px 0;
+    color: var(--primary);
+    transition: color 0.3s ease-in-out;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ===== АНИМАЦИЯ ДЛЯ КАРТОЧЕК (ВЫЕЗД ПРИ ЗАГРУЗКЕ) ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease-in-out both;
 }
