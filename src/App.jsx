@@ -19,4 +19,4 @@ const App = () => {
 
 export default App;
 
-// TS is done, now i will use Github Pages to deploy the app
+// work?
