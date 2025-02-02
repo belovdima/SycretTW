@@ -13,14 +13,17 @@ export const CertificateList = () => {
     useEffect(() => {
         const fetchCertificates = async () => {
             try {
-                const response = await fetch(API_URL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        ApiKey: API_KEY,
-                        MethodName: "OSGetGoodList",
-                    }),
-                });
+                const response = await fetch(
+                    "https://sycret.ru/service/api/api",
+                    {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            ApiKey: API_KEY,
+                            MethodName: "OSGetGoodList",
+                        }),
+                    }
+                );
 
                 const data = await response.json();
 
