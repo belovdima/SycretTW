@@ -52,17 +52,38 @@ export const Form = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
-            console.log("Данные отправлены:", {
-                name,
-                phone,
-                email,
-                message,
-                certificate,
-            });
-            navigate("/ok");
+            const saleData = {
+                ApiKey: "011ba11bdcad4fa396660c2ec447ef14",
+                MethodName: "OSSale",
+                GoodId: certificate?.ID,
+                Phone: phone,
+                Email: email,
+                Name: name,
+                Message: message,
+            };
+
+            try {
+                const response = await fetch("/api/service/api/api", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(saleData),
+                });
+
+                const data = await response.json();
+                if (data.result === 0) {
+                    console.log("Данные успешно сохранены:", data);
+                    navigate("/ok");
+                } else {
+                    console.error("Ошибка API:", data.resultdescription);
+                    alert("Ошибка при сохранении данных.");
+                }
+            } catch (error) {
+                console.error("Ошибка запроса:", error);
+                alert("Не удалось отправить данные.");
+            }
         }
     };
 
