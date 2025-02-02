@@ -175,3 +175,11 @@ textarea:focus {
 .card {
     animation: fadeInUp 0.6s ease-in-out both;
 }
+
+/* ===== СТИЛЬ ДЛЯ ОШИБОК ===== */
+.error {
+    margin-top: 20px;
+    color: var(--error);
+    text-align: center;
+    font-size: 18px;
+}
