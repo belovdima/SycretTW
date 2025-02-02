@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const CertificateList = () => {
+    const API_URL = "/api/service/api/api";
     const API_KEY = "011ba11bdcad4fa396660c2ec447ef14";
 
     const [certificates, setCertificates] = useState([]);
@@ -12,17 +13,14 @@ export const CertificateList = () => {
     useEffect(() => {
         const fetchCertificates = async () => {
             try {
-                const response = await fetch(
-                    "https://sycret.ru/service/api/api",
-                    {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            ApiKey: API_KEY,
-                            MethodName: "OSGetGoodList",
-                        }),
-                    }
-                );
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        ApiKey: API_KEY,
+                        MethodName: "OSGetGoodList",
+                    }),
+                });
 
                 const data = await response.json();
 
