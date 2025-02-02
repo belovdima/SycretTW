@@ -183,3 +183,164 @@ textarea:focus {
     text-align: center;
     font-size: 18px;
 }
+
+/* ===== СТИЛИ ДЛЯ ФОРМЫ ОФОРМЛЕНИЯ ===== */
+.form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 450px;
+    padding: 25px;
+    border-radius: 12px;
+    opacity: 0;
+    background: var(--surface);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%) scale(0.95);
+    animation: fadeInScale 0.3s ease-in-out forwards;
+    text-align: center;
+}
+
+/* Анимация появления формы */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Заголовок формы */
+.form-container h2 {
+    margin-bottom: 15px;
+    color: var(--primary);
+    font-size: 22px;
+}
+
+/* Выбранный сертификат */
+.selected-certificate {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background: var(--background);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Метки полей */
+label {
+    display: block;
+    margin-top: 15px;
+    color: var(--text-primary);
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Поля ввода */
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    background: var(--surface);
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+/* Фокус на инпут */
+input:focus,
+textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 8px rgba(187, 134, 252, 0.6);
+}
+
+/* Ошибки валидации */
+.error {
+    margin-top: 5px;
+    color: var(--error);
+    text-align: left;
+    font-size: 13px;
+}
+
+/* Группа кнопок */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Кнопка закрытия */
+.close-btn {
+    padding: 10px 15px;
+    background: #ff4d4d;
+    font-size: 14px;
+}
+
+.close-btn:hover {
+    background: #e63946;
+}
+
+/* Кнопка оплаты */
+.submit-btn {
+    padding: 10px 15px;
+    background: var(--primary);
+    font-size: 14px;
+}
+
+.submit-btn:hover {
+    background: #9b6ded;
+}
+
+.ok-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%);
+    animation: fadeInScale 0.3s ease-in-out forwards;
+    text-align: center;
+}
+
+.ok-container h2 {
+    margin-bottom: 10px;
+    color: var(--primary);
+    font-size: 22px;
+}
+
+.ok-container p {
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+.back-btn {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background: var(--primary);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+.back-btn:hover {
+    background: #9b6ded;
+    box-shadow: 0 4px 15px rgba(155, 109, 237, 0.4);
+    transform: scale(1.05);
+}
+
+.back-btn:active {
+    box-shadow: 0 2px 8px rgba(155, 109, 237, 0.3);
+    transform: scale(0.95);
+}

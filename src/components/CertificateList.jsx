@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const CertificateList = () => {
     const API_URL = "/api/service/api/api";
@@ -7,6 +8,7 @@ export const CertificateList = () => {
     const [certificates, setCertificates] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchCertificates = async () => {
@@ -57,7 +59,10 @@ export const CertificateList = () => {
                         <div key={cert.id} className="card">
                             <h3>{cert.name}</h3>
                             <p className="price">{cert.price}</p>
-                            <button>Оформить</button>
+                            <button
+                                onClick={() => navigate(`/form/${cert.id}`)}>
+                                Оформить
+                            </button>
                         </div>
                     ))}
                 </div>
