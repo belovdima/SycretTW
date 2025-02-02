@@ -7,7 +7,7 @@ import { OK } from "./components/OK";
 
 const App = () => {
     return (
-        <Router basename="/SycretTW">
+        <Router>
             <Routes>
                 <Route path="/" element={<CertificateList />} />
                 <Route path="/form/:id" element={<Form />} />
