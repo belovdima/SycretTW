@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const CertificateList = () => {
-    const API_URL = "/api/service/api/api";
+    const API_URL = "https://sycret.ru/service/api/api";
     const API_KEY = "011ba11bdcad4fa396660c2ec447ef14";
 
     const [certificates, setCertificates] = useState([]);
