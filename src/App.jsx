@@ -7,7 +7,7 @@ import { OK } from "./components/OK";
 
 const App = () => {
     return (
-        <Router>
+        <Router basename="/SycretTW">
             <Routes>
                 <Route path="/" element={<CertificateList />} />
                 <Route path="/form/:id" element={<Form />} />
@@ -18,5 +18,3 @@ const App = () => {
 };
 
 export default App;
-
-// TS is done, now i will use Github Pages to deploy the app
